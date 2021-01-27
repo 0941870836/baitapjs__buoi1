@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #khung {
+            width: 300px;
+            border: 1px solid;
+            margin: auto;
+        }
+
+        #tieude {
+            width: 100%;
+            text-align: center;
+            background-color: azure;
+            color: cadetblue;
+            font-size: 24px;
+        }
+
+        #noidung {
+            width: 100%;
+        }
+
+        .left {
+            width: 40%;
+        }
+
+        .right {
+            width: 60%;
+        }
+
+        #mix {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="khung">
+        <div id="tieude">Tính tổng 2 ký số</div>
+        <div id="noidung">
+            <table>
+                <tr>
+                    <td class="left">Nhập 2 số:</td>
+                    <td class="right">
+                        <input type="text" id="2so" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left">Tổng 2 ký số là:</td>
+                    <td class="right">
+                        <input type="text" id="tong" readonly="readonly" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="mix">
+                        <button class="btn btn-success" onclick="hienthi()">Tính</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        /**
+        * Đầu vào
+        * - Số có 2 chữ số. Ví dụ 23
+        * Xử lý
+        * - Lấy hàng chục = 23/10 = 2.3 là số thực ==> Ta dùng parseInt để chuyển về số nguyên
+        * - Lấy hàng đơn vị = 23%10 = 3
+        * Đầu ra (output)
+        * Xuất ra màn hình kq
+        */
+
+        function hienthi() {
+            var nhap2so = document.getElementById("2so").value;
+            if (isNaN(nhap2so)){
+                alert("Chỉ cho nhập số!")
+            } else {
+                console.log(nhap2so);
+                donvi = nhap2so % 10;
+                hangchuc = parseInt(nhap2so / 10);
+                kq = donvi + hangchuc;
+                document.getElementById("tong").value = kq;
+            }
+        }
+    </script>
+</body>
+
+</html>

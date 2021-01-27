@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style type="text/css">
+      #khung {
+         width: 300px;
+         border: 1px solid;
+         margin: auto;
+      }
+
+      #tieude {
+         width: 100%;
+         text-align: center;
+         background-color: azure;
+         color: cadetblue;
+         font-size: 24px;
+      }
+
+      #noidung {
+         width: 100%;
+      }
+
+      .left {
+         width: 40%;
+      }
+
+      .right {
+         width: 60%;
+      }
+
+      #mix {
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="khung">
+      <div id="tieude">Tính tổng lương nhân viên</div>
+      <div id="noidung">
+                  <table>
+                        <tr>
+                              <td class="left">Chiều dài:</td>
+                              <td class="right">
+                                    <input type="text" id="chieudai" />
+                              </td>
+                        </tr>
+                        <tr>
+                           <td class="left">Chiều rộng:</td>
+                           <td class="right">
+                                 <input type="text" id="chieurong" />
+                           </td>
+                     </tr>
+                     <tr>
+                        <td class="left">Chu vi:</td>
+                        <td class="right">
+                              <input type="text" id="chuvi" readonly="readonly"/>
+                        </td>
+                  </tr>
+                        <tr>
+                              <td class="left">Diện tích:</td>
+                              <td class="right">
+                                    <input type="text" id="dientich" readonly="readonly" />
+                              </td>
+                        </tr>
+                        <tr>
+                              <td colspan="2" id="mix">
+                                    <button class="btn btn-success" onclick="hienthi()">Tính</button>
+                              </td>
+                        </tr>
+                  </table>
+      </div>
+</div>
+
+
+   <script type="text/javascript">
+      /**
+        * Đầu vào
+         * - cd,cr,s,p
+         * Xử lý 
+         * - s = cd * cr
+         * - p = 2 * (cd + cr)
+         * Đầu ra
+         * - Xuất kết quả ra màn hình
+      */
+      function hienthi() {
+         var cd = document.getElementById("chieudai").value;
+         var cr = document.getElementById("chieurong").value;
+         if(isNaN(cd) || cd<0 || isNaN(cr) || cr<0){
+            alert("Chỉ cho nhập số và số lớn hơn 0 hoặc bằng 0!")
+         }else{
+         console.log(cd, cr);
+         s = cd * cr;
+         p = 2 * (parseFloat(cd) + parseFloat(cr));
+         document.getElementById("dientich").value = s;
+         document.getElementById("chuvi").value = p;
+      }
+      }
+   </script>
+</body>
+
+</html>
